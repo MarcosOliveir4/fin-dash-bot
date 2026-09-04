@@ -1,8 +1,17 @@
 import pg from "pg";
 const { Pool } = pg;
 
+const connectionString = process.env.DATABASE_URL;
+
+if (!connectionString) {
+  console.error(
+    "❌ ERRO FATAL: A variável DATABASE_URL não foi encontrada no .env!",
+  );
+  process.exit(1);
+}
+
 export const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: connectionString.replace("postgresql://", "postgres://"),
   ssl: {
     rejectUnauthorized: false,
   },
