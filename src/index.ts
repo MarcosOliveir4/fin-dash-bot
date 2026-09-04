@@ -1,6 +1,20 @@
 import "dotenv/config";
+import http from "http";
 import { Telegraf } from "telegraf";
 import { pool, testConnection } from "../database.js";
+
+const port = process.env.PORT || 3000;
+http
+  .createServer((req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.write("Bot do FinDash rodando!");
+    res.end();
+  })
+  .listen(port, () => {
+    console.log(
+      `🌐 Servidor "fantasma" escutando na porta ${port} para a Render.`,
+    );
+  });
 
 const bot = new Telegraf(process.env.BOT_TOKEN || "");
 
