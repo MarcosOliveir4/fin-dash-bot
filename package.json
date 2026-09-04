@@ -1,0 +1,28 @@
+{
+  "name": "fin-dash-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc --outDir dist",
+    "start": "node dist/src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "pg": "^8.23.0",
+    "telegraf": "^4.16.3"
+  }
+}
